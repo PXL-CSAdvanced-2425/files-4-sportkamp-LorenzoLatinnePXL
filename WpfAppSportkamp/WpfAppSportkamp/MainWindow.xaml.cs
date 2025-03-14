@@ -28,14 +28,16 @@ namespace WpfAppSportkamp
             InitializeComponent();
             Member memberList = new Member();
 
-            List<Member> Members = memberList.ReadMembers(_fileName);
+            List<Member> allMembers = memberList.ReadMembers(_fileName);
 
             detailsTextBox.Text = "Details van alle leden.\n\n";
-            detailsTextBox.Text += memberList.ShowMembers(Members);
+            detailsTextBox.Text += memberList.ShowMembers(allMembers);
 
             weekOverviewTextBox.Text = "Overzicht per week.\n\n";
+            weekOverviewTextBox.Text += memberList.ShowWeekOverview(allMembers);
 
             sportOverviewTextBox.Text = "Overzicht per Sporttak.\n\n";
+            sportOverviewTextBox.Text += memberList.ShowSportsTypeOverview(allMembers);
         }
     }
 }

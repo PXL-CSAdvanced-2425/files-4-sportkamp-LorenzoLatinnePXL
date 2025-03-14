@@ -131,14 +131,107 @@ namespace ClassLib
             return showMembers.ToString();
         }
 
-        public string ShowSportsTypeOverview()
+        public string ShowSportsTypeOverview(List<Member> members)
         {
-            throw new Exception();
+            StringBuilder sb = new StringBuilder();
+            int count;
+            double sum;
+
+            for (int i = 0; i < 7; i++)
+            {
+                count = 0;
+                sum = 0;
+                foreach (Member member in members)
+                {
+                    if (member.SportCode == "ATL" && i == 0)
+                    {
+                        count++;
+                        sum += member.PriceToPay;
+                    }
+                    else if (member.SportCode == "VOE" && i == 1)
+                    {
+                        count++;
+                        sum += member.PriceToPay;
+                    }
+                    else if (member.SportCode == "ZWE" && i == 2)
+                    {
+                        count++;
+                        sum += member.PriceToPay;
+                    }
+                    else if (member.SportCode == "KAY" && i == 3)
+                    {
+                        count++;
+                        sum += member.PriceToPay;
+                    }
+                    else if (member.SportCode == "TEN" && i == 4)
+                    {
+                        count++;
+                        sum += member.PriceToPay;
+                    }
+                    else if (member.SportCode == "PAA" && i == 5)
+                    {
+                        count++;
+                        sum += member.PriceToPay;
+                    }
+                    else if (member.SportCode == "VOL" && i == 6)
+                    {
+                        count++;
+                        sum += member.PriceToPay;
+                    }
+
+                }
+                switch (i)
+                {
+                    case (0):
+                        sb.AppendLine($"{"Atletiek".PadRight(15)}- {count} {"inschrijvingen:".PadRight(20)} {sum:c}");
+                        break;
+                    case (1):
+                        sb.AppendLine($"{"Voetbal".PadRight(15)}- {count} {"inschrijvingen:".PadRight(20)} {sum:c}");
+                        break;
+                    case (2):
+                        sb.AppendLine($"{"Zwemmen".PadRight(15)}- {count} {"inschrijvingen:".PadRight(20)} {sum:c}");
+                        break;
+                    case (3):
+                        sb.AppendLine($"{"Kayak".PadRight(15)}- {count} {"inschrijvingen:".PadRight(20)} {sum:c}");
+                        break;
+                    case (4):
+                        sb.AppendLine($"{"Tennis".PadRight(15)}- {count} {"inschrijvingen:".PadRight(20)} {sum:c}");
+                        break;
+                    case (5):
+                        sb.AppendLine($"{"Paardrijden".PadRight(15)}- {count} {"inschrijvingen:".PadRight(20)} {sum:c}");
+                        break;
+                    case (6):
+                        sb.AppendLine($"{"Volleybal".PadRight(15)}- {count} {"inschrijvingen:".PadRight(20)} {sum:c}");
+                        break;
+                }
+
+            }
+            return sb.ToString();
+
+
         }
 
-        public string ShowWeekOverview()
+        public string ShowWeekOverview(List<Member> members)
         {
-            throw new Exception();
+            StringBuilder sb = new StringBuilder();
+            int count;
+            double sum;
+
+            for (int i = 0; i < members.Max(x => x.WeekNr); i++)
+            {
+                count = 0;
+                sum = 0;
+                foreach (Member member in members)
+                {
+                    if (member.WeekNr == (i + 1))
+                    {
+                        count++;
+                        sum += member.PriceToPay;
+                    }
+                }
+                sb.AppendLine($"Week {i + 1} - {count} inschrijvingen \t {sum:c}");
+            }
+            return sb.ToString();
         }
 
     }
