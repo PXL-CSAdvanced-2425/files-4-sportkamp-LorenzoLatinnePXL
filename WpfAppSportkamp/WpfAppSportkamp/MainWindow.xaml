@@ -1,0 +1,22 @@
+﻿<Window x:Class="WpfAppSportkamp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppSportkamp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Details">
+                <TextBox x:Name="detailsTextBox" VerticalScrollBarVisibility="Auto" FontFamily="Consolas" FontSize="16px" IsReadOnly="True"/>
+            </TabItem>
+            <TabItem Header="Overzicht per week">
+                <TextBox x:Name="weekOverviewTextBox" VerticalScrollBarVisibility="Auto" FontFamily="Consolas" FontSize="16px" IsReadOnly="True"/>
+            </TabItem>
+            <TabItem Header="Overzicht per sporttak">
+                <TextBox x:Name="sportOverviewTextBox" VerticalScrollBarVisibility="Auto" FontFamily="Consolas" FontSize="16px" IsReadOnly="True"/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
